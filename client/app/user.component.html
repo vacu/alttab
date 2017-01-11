@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="forms" *ngIf="loggedIn===false">
+    <div>
+      <h3>Authenticate</h3>
+      <form>
+        <label>Email
+          <input #userEmail placeholder="email@example.com" />
+        </label>
+        <label>Password
+          <input #userPassword type="password" placeholder="Password" />
+        </label>
+        <button (click)="authenticate(userEmail.value, userPassword.value);
+          userEmail.value=''; userPassword.value=''">Login</button>
+      </form>
+    </div>
+
+    <div>
+      <h3>Signup</h3>
+      <form>
+        <label>Email
+          <input #userRegisterEmail placeholder="email@example.com" />
+        </label>
+        <label>Password
+          <input #userRegisterPassword type="password" placeholder="Password" />
+        </label>
+        <button (click)="register(userRegisterEmail.value, userRegisterPassword.value);
+          userRegisterEmail.value=''; userRegisterPassword.value=''">Register</button>
+      </form>
+    </div>
+  </div>
+  <div class="dashboard" *ngIf="loggedIn===true">
+    Logged in.
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
